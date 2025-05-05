@@ -59,6 +59,7 @@ public class FranquiciaServiceImpl implements FranquiciaService{
 
 	@Override
 	public Flux<Franquicia> findAllConNombreUpperCaseRepeat() {
+
 		return findAllConNombreUpperCase().repeat(5000);
 	}
 
@@ -83,5 +84,9 @@ public class FranquiciaServiceImpl implements FranquiciaService{
 				.retrieve()
 				.bodyToMono(Void.class);
 	}
+	@Override
+	public Mono<Franquicia> findByNombre(String nombre) {
+		return dao.findByNombre(nombre);
 
+	}
 }
